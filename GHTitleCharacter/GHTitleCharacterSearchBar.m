@@ -64,6 +64,7 @@
         _textField.layer.masksToBounds = YES;
         _textField.layer.cornerRadius = 15;
         _textField.tintColor = [UIColor orangeColor];
+        
     }
     return _textField;
 }
