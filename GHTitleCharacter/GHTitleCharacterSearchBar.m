@@ -53,12 +53,17 @@
 - (UITextField *)textField {
     if (_textField == nil) {
         _textField = [[UITextField alloc]init];
+        UIView *leftView = [[UIView alloc]init];
+        leftView.frame = CGRectMake(0, 0, 12, 30);
         _textField.backgroundColor = [UIColor whiteColor];
         _textField.placeholder = @"输入内容";
+        _textField.leftView = leftView;
+        _textField.leftViewMode = UITextFieldViewModeAlways;
         _textField.font = [UIFont systemFontOfSize:13];
         _textField.frame = CGRectMake(CGRectGetMaxX(self.icon.frame) + 20, self.icon.frame.origin.y, [UIScreen mainScreen].bounds.size.width - (CGRectGetMaxX(self.icon.frame) + 20) - 70, 30);
         _textField.layer.masksToBounds = YES;
         _textField.layer.cornerRadius = 15;
+        _textField.tintColor = [UIColor orangeColor];
     }
     return _textField;
 }
@@ -73,4 +78,5 @@
     }
     return _icon;
 }
+
 @end

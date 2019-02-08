@@ -41,7 +41,6 @@
     CGFloat h = self.frame.size.height;
     for (NSInteger index = 0; index < self.labels.count; index++) {
         UILabel *label = self.labels [index];
-
         label.frame = CGRectMake(index * w ,y, w, h);
     }
 }

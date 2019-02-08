@@ -81,7 +81,7 @@
 
 - (GHTitleCharacterHeader *)header {
     if (_header == nil) {
-        _header = [[GHTitleCharacterHeader alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, kHeaderHeight - 64)];
+        _header = [[GHTitleCharacterHeader alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, kHeaderHeight)];
     }
     return _header;
 }
