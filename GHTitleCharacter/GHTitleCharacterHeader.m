@@ -10,10 +10,11 @@
 #import "NSString+GHAdd.h"
 #import "UIView+GHAdd.h"
 #import "GHTitleCharacterSearchBar.h"
+#import "GHTitleCharacterMenu.h"
 
 @interface GHTitleCharacterHeader()
 @property (nonatomic , strong) UILabel *title;
-@property (nonatomic , strong) UIView *menu;
+@property (nonatomic , strong) GHTitleCharacterMenu *menu;
 @property (nonatomic , strong) GHTitleCharacterSearchBar *searchBar;
 
 @end
@@ -30,9 +31,10 @@
 - (void)setHeaderHeight:(CGFloat)headerHeight {
     _headerHeight = headerHeight;
     self.gh_height = headerHeight;
-    self.searchBar.gh_height = headerHeight - 64 + 20;
-//    self.searchBar.alpha = 1 - (headerHeight - 64 + 20)/headerHeight;
-    self.menu.gh_top = self.searchBar.gh_height;
+    self.searchBar.gh_top = headerHeight - 64- 20 - 20;
+    self.searchBar.gh_height = headerHeight - 64;
+    self.searchBar.space = headerHeight;
+    self.menu.gh_top = headerHeight - 64 + 20;
 }
 
 - (void)setupUI {
@@ -44,9 +46,9 @@
     [super layoutSubviews];
 }
 
-- (UIView *)menu {
+- (GHTitleCharacterMenu *)menu {
     if (_menu == nil) {
-        _menu = [[UIView alloc]initWithFrame:CGRectMake(0, 84,[UIScreen mainScreen].bounds.size.width , 44)];
+        _menu = [[GHTitleCharacterMenu alloc]initWithFrame:CGRectMake(20, 84,[UIScreen mainScreen].bounds.size.width - 40 , 44)];
         _menu.backgroundColor = [UIColor orangeColor];
     }
     return _menu;
@@ -54,8 +56,8 @@
 
 - (GHTitleCharacterSearchBar *)searchBar {
     if (_searchBar == nil) {
-        _searchBar = [[GHTitleCharacterSearchBar alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 84)];
-        _searchBar.backgroundColor = [UIColor blueColor];
+        _searchBar = [[GHTitleCharacterSearchBar alloc]initWithFrame:CGRectMake(0, 20, [UIScreen mainScreen].bounds.size.width, 84)];
+        _searchBar.backgroundColor = [UIColor orangeColor];
     }
     return _searchBar;
 }

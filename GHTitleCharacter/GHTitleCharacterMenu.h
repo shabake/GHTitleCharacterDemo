@@ -1,5 +1,5 @@
 //
-//  GHTitleCharacterSearchBar.h
+//  GHTitleCharacterMenu.h
 //  GHTitleCharacterDemo
 //
 //  Created by zhaozhiwei on 2019/2/8.
@@ -10,8 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GHTitleCharacterSearchBar : UIView
-@property (nonatomic , assign) CGFloat space;
+@interface GHTitleCharacterMenu : UIView
+
 @end
 
 NS_ASSUME_NONNULL_END

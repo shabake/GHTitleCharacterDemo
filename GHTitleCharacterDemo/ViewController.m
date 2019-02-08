@@ -13,7 +13,6 @@
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic , strong) UITableView *tableView;
 @property (nonatomic , strong) GHTitleCharacterHeader *header;
-@property (nonatomic , assign) CGFloat lastContentOffset;
 
 @end
 
@@ -52,27 +51,18 @@
     if ([keyPath isEqualToString:@"contentOffset"]){
         UITableView *tableView = object;
         CGFloat contentOffsetY = tableView.contentOffset.y;
-        if (-contentOffsetY <= 64 || contentOffsetY >= 64 ) {
-            self.header.headerHeight = 64;
-        } else  {
-            if (-contentOffsetY < kHeaderHeight) {
-                self.header.headerHeight = -contentOffsetY;
-            }
-        }
-        if (-contentOffsetY >= (kHeaderHeight)) {
-            self.header.headerHeight = kHeaderHeight;
+        if (-contentOffsetY >= kHeaderHeight) {
+            [UIView animateWithDuration:0.25 animations:^{
+                self.header.headerHeight = kHeaderHeight;
+            }];
+        } else {
+            [UIView animateWithDuration:0.25 animations:^{
+                self.header.headerHeight = 64;
+            }];
         }
     }
 }
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    self.lastContentOffset = scrollView.contentOffset.y;
-}
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-}
 
 - (void)dealloc {
     [self.tableView removeObserver:self forKeyPath:@"contentOffset"];
@@ -84,24 +74,25 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCellID"];
-    cell.textLabel.text = [NSString stringWithFormat:@"第%ld行1",(long)indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"第%ld行",(long)indexPath.row];
     cell.selectionStyle = UITableViewCellEditingStyleNone;
     return cell;
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-}
+
 - (GHTitleCharacterHeader *)header {
     if (_header == nil) {
         _header = [[GHTitleCharacterHeader alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, kHeaderHeight - 64)];
     }
     return _header;
 }
+
 - (UITableView *)tableView {
     if (_tableView == nil) {
         _tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
         _tableView.dataSource = self;
         _tableView.delegate = self;
-        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCellID"];        _tableView.contentInset = UIEdgeInsetsMake(kHeaderHeight, 0, 0, 0);
+        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCellID"];
+        _tableView.contentInset = UIEdgeInsetsMake(kHeaderHeight, 0, 0, 0);
     }
     return _tableView;
 }

@@ -17,6 +17,7 @@
 		D6D5E9EF220D967400AD4CDA /* NSString+GHAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5E9ED220D967300AD4CDA /* NSString+GHAdd.m */; };
 		D6D5E9F2220D969500AD4CDA /* UIView+GHAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5E9F0220D969500AD4CDA /* UIView+GHAdd.m */; };
 		D6D5E9F5220DA12500AD4CDA /* GHTitleCharacterSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5E9F4220DA12500AD4CDA /* GHTitleCharacterSearchBar.m */; };
+		D6D5E9F8220DACC200AD4CDA /* GHTitleCharacterMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5E9F7220DACC200AD4CDA /* GHTitleCharacterMenu.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,8 @@
 		D6D5E9F1220D969500AD4CDA /* UIView+GHAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GHAdd.h"; sourceTree = "<group>"; };
 		D6D5E9F3220DA12500AD4CDA /* GHTitleCharacterSearchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHTitleCharacterSearchBar.h; sourceTree = "<group>"; };
 		D6D5E9F4220DA12500AD4CDA /* GHTitleCharacterSearchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHTitleCharacterSearchBar.m; sourceTree = "<group>"; };
+		D6D5E9F6220DACC200AD4CDA /* GHTitleCharacterMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHTitleCharacterMenu.h; sourceTree = "<group>"; };
+		D6D5E9F7220DACC200AD4CDA /* GHTitleCharacterMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHTitleCharacterMenu.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,8 @@
 				D6D5E9E8220D950700AD4CDA /* GHTitleCharacterHeader.m */,
 				D6D5E9F3220DA12500AD4CDA /* GHTitleCharacterSearchBar.h */,
 				D6D5E9F4220DA12500AD4CDA /* GHTitleCharacterSearchBar.m */,
+				D6D5E9F6220DACC200AD4CDA /* GHTitleCharacterMenu.h */,
+				D6D5E9F7220DACC200AD4CDA /* GHTitleCharacterMenu.m */,
 			);
 			path = GHTitleCharacter;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 				D6D5E9E0220D94A200AD4CDA /* main.m in Sources */,
 				D6D5E9E9220D950700AD4CDA /* GHTitleCharacterHeader.m in Sources */,
 				D6D5E9F2220D969500AD4CDA /* UIView+GHAdd.m in Sources */,
+				D6D5E9F8220DACC200AD4CDA /* GHTitleCharacterMenu.m in Sources */,
 				D6D5E9F5220DA12500AD4CDA /* GHTitleCharacterSearchBar.m in Sources */,
 				D6D5E9D2220D94A000AD4CDA /* AppDelegate.m in Sources */,
 				D6D5E9EF220D967400AD4CDA /* NSString+GHAdd.m in Sources */,
