@@ -13,6 +13,10 @@
 		D6D5E9DA220D94A200AD4CDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6D5E9D9220D94A200AD4CDA /* Assets.xcassets */; };
 		D6D5E9DD220D94A200AD4CDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D5E9DB220D94A200AD4CDA /* LaunchScreen.storyboard */; };
 		D6D5E9E0220D94A200AD4CDA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5E9DF220D94A200AD4CDA /* main.m */; };
+		D6D5E9E9220D950700AD4CDA /* GHTitleCharacterHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5E9E8220D950700AD4CDA /* GHTitleCharacterHeader.m */; };
+		D6D5E9EF220D967400AD4CDA /* NSString+GHAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5E9ED220D967300AD4CDA /* NSString+GHAdd.m */; };
+		D6D5E9F2220D969500AD4CDA /* UIView+GHAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5E9F0220D969500AD4CDA /* UIView+GHAdd.m */; };
+		D6D5E9F5220DA12500AD4CDA /* GHTitleCharacterSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D5E9F4220DA12500AD4CDA /* GHTitleCharacterSearchBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,14 @@
 		D6D5E9DC220D94A200AD4CDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D6D5E9DE220D94A200AD4CDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6D5E9DF220D94A200AD4CDA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D6D5E9E7220D950700AD4CDA /* GHTitleCharacterHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHTitleCharacterHeader.h; sourceTree = "<group>"; };
+		D6D5E9E8220D950700AD4CDA /* GHTitleCharacterHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHTitleCharacterHeader.m; sourceTree = "<group>"; };
+		D6D5E9ED220D967300AD4CDA /* NSString+GHAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GHAdd.m"; sourceTree = "<group>"; };
+		D6D5E9EE220D967400AD4CDA /* NSString+GHAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GHAdd.h"; sourceTree = "<group>"; };
+		D6D5E9F0220D969500AD4CDA /* UIView+GHAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GHAdd.m"; sourceTree = "<group>"; };
+		D6D5E9F1220D969500AD4CDA /* UIView+GHAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GHAdd.h"; sourceTree = "<group>"; };
+		D6D5E9F3220DA12500AD4CDA /* GHTitleCharacterSearchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GHTitleCharacterSearchBar.h; sourceTree = "<group>"; };
+		D6D5E9F4220DA12500AD4CDA /* GHTitleCharacterSearchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHTitleCharacterSearchBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +54,7 @@
 		D6D5E9C4220D94A000AD4CDA = {
 			isa = PBXGroup;
 			children = (
+				D6D5E9E6220D94F700AD4CDA /* GHTitleCharacter */,
 				D6D5E9CF220D94A000AD4CDA /* GHTitleCharacterDemo */,
 				D6D5E9CE220D94A000AD4CDA /* Products */,
 			);
@@ -69,6 +82,21 @@
 				D6D5E9DF220D94A200AD4CDA /* main.m */,
 			);
 			path = GHTitleCharacterDemo;
+			sourceTree = "<group>";
+		};
+		D6D5E9E6220D94F700AD4CDA /* GHTitleCharacter */ = {
+			isa = PBXGroup;
+			children = (
+				D6D5E9F1220D969500AD4CDA /* UIView+GHAdd.h */,
+				D6D5E9F0220D969500AD4CDA /* UIView+GHAdd.m */,
+				D6D5E9EE220D967400AD4CDA /* NSString+GHAdd.h */,
+				D6D5E9ED220D967300AD4CDA /* NSString+GHAdd.m */,
+				D6D5E9E7220D950700AD4CDA /* GHTitleCharacterHeader.h */,
+				D6D5E9E8220D950700AD4CDA /* GHTitleCharacterHeader.m */,
+				D6D5E9F3220DA12500AD4CDA /* GHTitleCharacterSearchBar.h */,
+				D6D5E9F4220DA12500AD4CDA /* GHTitleCharacterSearchBar.m */,
+			);
+			path = GHTitleCharacter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,7 +171,11 @@
 			files = (
 				D6D5E9D5220D94A000AD4CDA /* ViewController.m in Sources */,
 				D6D5E9E0220D94A200AD4CDA /* main.m in Sources */,
+				D6D5E9E9220D950700AD4CDA /* GHTitleCharacterHeader.m in Sources */,
+				D6D5E9F2220D969500AD4CDA /* UIView+GHAdd.m in Sources */,
+				D6D5E9F5220DA12500AD4CDA /* GHTitleCharacterSearchBar.m in Sources */,
 				D6D5E9D2220D94A000AD4CDA /* AppDelegate.m in Sources */,
+				D6D5E9EF220D967400AD4CDA /* NSString+GHAdd.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

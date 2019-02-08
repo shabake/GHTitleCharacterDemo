@@ -7,16 +7,103 @@
 //
 
 #import "ViewController.h"
+#import "GHTitleCharacterHeader.h"
+#define kHeaderHeight 130
 
-@interface ViewController ()
+@interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic , strong) UITableView *tableView;
+@property (nonatomic , strong) GHTitleCharacterHeader *header;
+@property (nonatomic , assign) CGFloat lastContentOffset;
 
 @end
 
 @implementation ViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self setupUI];
+    self.header.headerHeight = kHeaderHeight;
+
+}
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+- (void)setupUI {
+    [self.view addSubview:self.tableView];
+    [self.view addSubview:self.header];
+    [self.tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+    
+}
+- (void)loadData {
+    
+}
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"contentOffset"]){
+        UITableView *tableView = object;
+        CGFloat contentOffsetY = tableView.contentOffset.y;
+        if (-contentOffsetY <= 64 || contentOffsetY >= 64 ) {
+            self.header.headerHeight = 64;
+        } else  {
+            if (-contentOffsetY < kHeaderHeight) {
+                self.header.headerHeight = -contentOffsetY;
+            }
+        }
+        if (-contentOffsetY >= (kHeaderHeight)) {
+            self.header.headerHeight = kHeaderHeight;
+        }
+    }
+}
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    self.lastContentOffset = scrollView.contentOffset.y;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+}
+
+- (void)dealloc {
+    [self.tableView removeObserver:self forKeyPath:@"contentOffset"];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 20;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCellID"];
+    cell.textLabel.text = [NSString stringWithFormat:@"第%ld行1",(long)indexPath.row];
+    cell.selectionStyle = UITableViewCellEditingStyleNone;
+    return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+}
+- (GHTitleCharacterHeader *)header {
+    if (_header == nil) {
+        _header = [[GHTitleCharacterHeader alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, kHeaderHeight - 64)];
+    }
+    return _header;
+}
+- (UITableView *)tableView {
+    if (_tableView == nil) {
+        _tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        _tableView.dataSource = self;
+        _tableView.delegate = self;
+        [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCellID"];        _tableView.contentInset = UIEdgeInsetsMake(kHeaderHeight, 0, 0, 0);
+    }
+    return _tableView;
 }
 
 
